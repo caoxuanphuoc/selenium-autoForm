@@ -19,7 +19,7 @@ namespace autoForm.helpers
                 {
                     // Click vào phần tử thứ 4 (index 3)
                     options[answer-1].Click();
-                    Console.WriteLine($"✅ Choose ansewer {answer}");
+                    Console.WriteLine($"AnswerSingle: Choose ansewer {answer}");
                 }
                 else
                 {
@@ -70,7 +70,7 @@ namespace autoForm.helpers
                     // Click vào lựa chọn
                     Actions actions = new Actions(driver);
                     actions.MoveToElement(option).Click().Perform();
-                    Console.WriteLine($"✅ Choose ansewer {index + 1}");
+                    Console.WriteLine($"AnswerMultiple: Choose ansewer {index }");
                     interval += 5;
                 }
 
@@ -87,6 +87,7 @@ namespace autoForm.helpers
             if (question != null && question.Displayed && question.Enabled)
             {
                 question.Clear();  // Xóa dữ liệu cũ (nếu có)
+                Console.WriteLine($"AnswerInput: write ansewer {answer}");
                 question.SendKeys(answer);  // Nhập dữ liệu mới
             }
             else
